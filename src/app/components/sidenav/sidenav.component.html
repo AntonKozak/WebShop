@@ -1,0 +1,14 @@
+<app-toolbar (drawerToggle)="drawer.toggle()"></app-toolbar>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer mode="side">
+    <mat-list>
+      <mat-list-item *ngFor="let nav of navList">
+        <mat-icon matListItemIcon>{{ nav.icon }}</mat-icon>
+        <div matListItemTitle>{{ nav.name }}</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <div>
+    <app-main-content></app-main-content>
+  </div>
+</mat-drawer-container>

@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="drawerToggle.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Pelle´s Butik</span>
+
+  <button
+    mat-icon-button
+    matTooltip="Shit which you want to buy"
+    fxFlex="100"
+    fxFlexOffset="50"
+  >
+    <mat-icon matBadge="3" matBadgeOverlap="false">shopping_cart</mat-icon>
+  </button>
+
+  <div fxShow="true" fxHide.lt-sm>
+    <button
+      mat-icon-button
+      *ngFor="let link of navigationLinks"
+      [matTooltip]="link.tooltip"
+    >
+      <mat-icon [routerLink]="link.tooltip">{{ link.icon }}</mat-icon>
+    </button>
+  </div>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" fxShow="true" fxHide.gt-xs>
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu" fxShow="true" fxHide.lt-sm>
+    <button mat-icon-button *ngFor="let link of navigationLinks">
+      <mat-icon [routerLink]="link.tooltip">{{ link.icon }}</mat-icon>
+    </button>
+  </mat-menu>
+</mat-toolbar>

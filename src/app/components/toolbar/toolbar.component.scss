@@ -1,0 +1,13 @@
+.example-spacer {
+  flex: 8 8 auto;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.position-top {
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  overflow-x: visible;
+}
