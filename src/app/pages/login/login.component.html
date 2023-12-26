@@ -1,0 +1,59 @@
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <div fxLayout="column" fxLayoutAlign="space-around center">
+    <h1>Login</h1>
+    <p>Enter your username and password</p>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="space-around center">
+    <mat-form-field>
+      <mat-label for="userName"> User Name</mat-label>
+      <input
+        matInput
+        type="text"
+        data-name="userName"
+        placeholder="User Name"
+        [(ngModel)]="loginModel.userName"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="password"> Password</mat-label>
+      <input
+        matInput
+        data-name="password"
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="loginModel.password"
+      />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 3px">
+    <button
+      mat-raised-button
+      color="accent"
+      style="margin-right: 10px"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      style="margin-left: 10px"
+      (click)="login()"
+    >
+      Login
+    </button>
+  </div>
+
+  <!-- TEST IF YOU ARE INLOGGED -->
+  <div *ngIf="accountService.currentUser$ | async">
+    <h3>If you see it you are inlogged</h3>
+    <p>Use async pipe to show if you are inlogged or not</p>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <h3>Not inlogged?</h3>
+    <p>Register here!</p>
+    <a [routerLink]="'/register'">Registration here!</a>
+  </div>
+</div>

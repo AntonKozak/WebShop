@@ -13,6 +13,12 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductsCardComponent } from './components/products-card/products-card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { AboutComponent } from './pages/about/about.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +28,11 @@ import { ProductsCardComponent } from './components/products-card/products-card.
     SidenavComponent,
     ToolbarComponent,
     ProductsCardComponent,
+    LoginComponent,
+    HomeComponent,
+    ProductsComponent,
+    AboutComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +42,7 @@ import { ProductsCardComponent } from './components/products-card/products-card.
     FlexLayoutModule,
     MaterialModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

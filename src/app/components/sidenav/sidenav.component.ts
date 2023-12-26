@@ -9,10 +9,10 @@ const Small = 720;
 })
 export class SidenavComponent {
   navList = [
-    { name: 'Home', icon: 'home' },
-    { name: 'About', icon: 'person' },
-    { name: 'Contact', icon: 'contact_mail' },
-    { name: 'Contact', icon: 'contact_mail' },
-    { name: 'Contact', icon: 'contact_mail' },
+    { name: 'Home', icon: 'home', link: '/home' },
+    { name: 'Products', icon: 'item', link: '/products'},
+    { name: 'About', icon: 'personm', link: '/about' },
+    { name: 'Contact', icon: 'contact_mail', link: '/contact' },
+    { name: 'Login', icon: 'login', link: '/login' },
   ];
 }

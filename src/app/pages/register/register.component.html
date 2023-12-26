@@ -1,0 +1,33 @@
+<div class="registration-container" fxLayout="column" fxLayoutAlign="center center">
+
+    <div style='margin-top: 20px;'>
+      <h1>Sign up</h1>
+    </div>
+
+    <mat-form-field>
+      <mat-label for="userName"> User Name</mat-label>
+      <input
+      autocomplete='off'
+        matInput
+        type="text"
+        data-name="userName"
+        placeholder="User Name"
+        [(ngModel)]="registrationModel.userName"
+      />
+  </mat-form-field>
+  <mat-form-field>
+      <mat-label for="password"> Password</mat-label>
+      <input
+      autocomplete='off'
+        matInput
+        data-name="password"
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="registrationModel.password"
+      />
+    </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" (click)="register()">
+          Register
+        </button>
+</div>

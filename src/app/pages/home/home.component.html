@@ -1,0 +1,63 @@
+<!-- home.component.html -->
+<div class="home-container" fxLayout="column" fxLayoutAlign="center center">
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <h1>Welcome to "Perfect Pelle's" Plant Shop</h1>
+    <p>Your Ultimate Destination for Rare and Beautiful Plants</p>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="featured-products-section">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Featured Products</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- Add your featured products here -->
+        <div class="featured-product">
+          <img src="assets/cactus1.jpg" alt="Cactus 1" />
+          <p>Exotic Cactus</p>
+          <p>$19.99</p>
+        </div>
+        <div class="featured-product">
+          <img src="assets/cactus2.jpg" alt="Cactus 2" />
+          <p>Colorful Succulent</p>
+          <p>$14.99</p>
+        </div>
+        <div class="featured-product">
+          <img src="assets/cactus3.jpg" alt="Cactus 3" />
+          <p>Rare Plant Species</p>
+          <p>$29.99</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <!-- Plant Care Tips Section -->
+  <section class="plant-care-section">
+    <h2>Plant Care Tips</h2>
+    <p>Explore our blog for expert tips on caring for your new plants. From watering schedules to sunlight exposure, we've got you covered!</p>
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section class="reviews-section">
+    <h2>What Our Customers Say</h2>
+    <div class="customer-review">
+      <img src="assets/customer1.jpg" alt="Customer 1" />
+      <p>"Absolutely love my new plants! They arrived in perfect condition and are thriving in my home."</p>
+      <p>- HappyPlantOwner22</p>
+    </div>
+    <div class="customer-review">
+      <img src="assets/customer2.jpg" alt="Customer 2" />
+      <p>"The variety of plants is amazing. I found some unique species that I couldn't find anywhere else."</p>
+      <p>- GreenThumb85</p>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="cta-section">
+    <h2>Log in to Get Exclusive Offers</h2>
+    <p>Unlock member-only discounts and promotions by logging in to your account. Start your plant collection journey today!</p>
+    <button mat-raised-button color="primary" [routerLink]="'/login'">Log In</button>
+  </section>
+</div>

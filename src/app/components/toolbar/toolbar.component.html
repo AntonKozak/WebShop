@@ -13,7 +13,7 @@
     <mat-icon matBadge="3" matBadgeOverlap="false">shopping_cart</mat-icon>
   </button>
 
-  <div fxShow="true" fxHide.lt-sm>
+<div fxShow="true" fxHide.lt-sm>
     <button
       mat-icon-button
       *ngFor="let link of navigationLinks"
@@ -32,4 +32,13 @@
       <mat-icon [routerLink]="link.tooltip">{{ link.icon }}</mat-icon>
     </button>
   </mat-menu>
+
+  <button mat-fab color="primary" [routerLink]="'/login'" *ngIf="!(accountService.currentUser$ | async)">
+  Login
+</button>
+
+  <button mat-fab color="primary" [routerLink]="'/home'" (click)='accountService.logout()' *ngIf="accountService.currentUser$ | async">
+  Logout
+</button>
+
 </mat-toolbar>
