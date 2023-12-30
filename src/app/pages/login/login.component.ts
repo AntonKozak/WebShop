@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit{
   loginModel: User ={
     userName: 'string',
-    password: 'string'
+    password: 'Pa$$w0rd'
   };
 
   public accountService = inject(AccountService);

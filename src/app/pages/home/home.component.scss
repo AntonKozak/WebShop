@@ -1,0 +1,16 @@
+::ng-deep .carousel-control-prev-icon, ::ng-deep .carousel-control-next-icon {
+  background-color: #a49436; /* Set your desired color */
+}
+
+/* Optionally, you can style the hover effect */
+::ng-deep .carousel-control-prev:hover, ::ng-deep .carousel-control-next:hover {
+  background-color: #202021; /* Set your desired hover color */
+}
+
+section{
+  margin: 20px 0 20px 0;
+}
+img {
+  width: 10%;
+}
+

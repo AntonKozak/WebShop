@@ -10,7 +10,7 @@ const Small = 720;
 export class SidenavComponent {
   navList = [
     { name: 'Home', icon: 'home', link: '/home' },
-    { name: 'Products', icon: 'item', link: '/products'},
+    { name: 'Products', icon: 'category', link: '/products'},
     { name: 'About', icon: 'personm', link: '/about' },
     { name: 'Contact', icon: 'contact_mail', link: '/contact' },
     { name: 'Login', icon: 'login', link: '/login' },

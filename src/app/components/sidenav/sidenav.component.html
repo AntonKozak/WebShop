@@ -1,12 +1,19 @@
-<app-toolbar (drawerToggle)="drawer.toggle()" ></app-toolbar>
-<mat-drawer-container class="example-container" autosize >
+<app-toolbar (drawerToggle)="drawer.toggle()"></app-toolbar>
+<mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer mode="side" opened="true">
-    <mat-list>
-      <mat-list-item *ngFor="let nav of navList" [routerLink]="nav.link" routerLinkActive="active">
-        <div matListItemTitle>{{ nav.name }}<mat-icon matListItemIcon>{{ nav.icon }}</mat-icon></div>
-
+    <mat-list >
+      <mat-list-item
+        *ngFor="let nav of navList"
+        [routerLink]="nav.link"
+        routerLinkActive="active"
+      >
+      <div fxLayoutAlign="start center" >
+          <div style='margin-right: 5px;' fxLayoutAlign="none start">
+            <mat-icon matListItemIcon>{{ nav.icon }}</mat-icon>
+          </div>
+          <div matListItemTitle>{{ nav.name }}</div>
+        </div>
       </mat-list-item>
-
     </mat-list>
   </mat-drawer>
   <div>
