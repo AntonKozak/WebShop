@@ -1,7 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AccountService } from '../../services/account.service';
-import { User } from '../../models/User';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit{
 
   public accountService = inject(AccountService);
   private router = inject(Router);
+  private toastr = inject(ToastrService);
 
   ngOnInit(): void {
   }
@@ -23,13 +25,11 @@ export class LoginComponent implements OnInit{
   login(){
     this.accountService.login(this.loginModel).subscribe(
       {
-        next: response => console.log(response),
-        error: err => console.log(err)
+        next: response => {this.router.navigate([''])},
+        error: err => {this.toastr.error(err.error); console.log(err)},
+        complete: () => console.log('complete')
       }
     );
-    if(this.accountService.currentUser$) {
-      this.router.navigate(['']);
-    }
   }
 
   logout(): void {

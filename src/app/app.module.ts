@@ -19,6 +19,8 @@ import { ProductsComponent } from './pages/products/products.component';
 import { AboutComponent } from './pages/about/about.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { SharedModule } from './shared/shared.module';
+import { UserComponent } from './pages/users/user.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { SharedModule } from './shared/shared.module';
     ProductsComponent,
     AboutComponent,
     RegisterComponent,
+    UserComponent,
+    UserCardComponent,
   ],
   imports: [
     BrowserModule,
