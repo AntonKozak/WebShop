@@ -1,0 +1,27 @@
+
+<mat-card class="example-card" *ngIf="member">
+  <img
+  mat-card-image
+  class="card-image"
+  [src]="member.mainPhotoUrl"
+  alt="{{member.userName}}"
+  />
+  <mat-card-content>
+    <mat-card-title fxLayoutAlign="center">{{member.userName}}</mat-card-title>
+
+  <mat-card-actions  >
+
+    <button mat-icon-button routerLink="/users/{{member.userName}}">
+      <mat-icon>person</mat-icon>
+    </button>
+    <button mat-icon-button >
+      <mat-icon >favorite</mat-icon>
+    </button>
+    <button mat-icon-button >
+      <mat-icon >email</mat-icon>
+    </button>
+
+  </mat-card-actions>
+
+</mat-card-content>
+</mat-card>

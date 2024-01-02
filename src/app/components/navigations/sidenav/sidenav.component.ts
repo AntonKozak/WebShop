@@ -12,7 +12,7 @@ export class SidenavComponent {
     { name: 'Home', icon: 'home', link: '/home' },
     { name: 'Products', icon: 'category', link: '/products'},
     { name: 'About', icon: 'personm', link: '/about' },
-    { name: 'Users', icon: 'contact_mail', link: '/settings/user' },
+    { name: 'Users', icon: 'contact_mail', link: '/users' },
     { name: 'Login', icon: 'login', link: '/login' },
   ];
 }

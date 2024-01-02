@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Member } from '../../models/member';
+import { Member } from '../../../models/member';
 
 @Component({
   selector: 'app-user-card',
@@ -8,8 +8,7 @@ import { Member } from '../../models/member';
 })
 export class UserCardComponent {
 //child to UserComponent
+//parent to UserDetailsComponent
 @Input() member: Member | undefined;
-
-
 
 }
