@@ -1,0 +1,16 @@
+
+/* Location Details Form Inline */
+.form-inline {
+  display: flex;
+}
+
+.form-inline mat-form-field {
+  margin-right: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .col-4, .col-8 {
+    width: 100%;
+  }
+}

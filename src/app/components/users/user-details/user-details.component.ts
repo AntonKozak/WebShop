@@ -1,15 +1,21 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Member } from '../../../models/member';
 import { MembersService } from '../../../services/members.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { GalleryItem, GalleryModule, ImageItem } from 'ng-gallery';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-user-details',
+  standalone: true,
   templateUrl: './user-details.component.html',
-  styleUrl: './user-details.component.scss'
+  styleUrls: ['./user-details.component.scss'],
+  imports: [CommonModule, RouterModule, GalleryModule, MatTabsModule],
 })
 export class UserDetailsComponent implements OnInit{
   member: Member | undefined = {} as Member;
+  images: GalleryItem[] = [];
 
   private memberServise = inject(MembersService);
   private route = inject(ActivatedRoute);//Getting access to the route parameters of the current route
@@ -23,8 +29,18 @@ export class UserDetailsComponent implements OnInit{
     if (!username) return;
     this.memberServise.getMember(username).subscribe({
       next: (member) => {
-        this.member = member;
+        this.member = member,
+        this.getImages();
       }
     })
+  }
+  //Getting access to the photos of the current user and adding them to the gallery by ImageItem class from ng-gallery module
+  getImages(){
+    if(!this.member?.photos) return;
+    for(const photo of this.member?.photos){
+      this.images.push(new ImageItem({src: photo.url, thumb: photo.url}));
+      this.images.push(new ImageItem({src: photo.url, thumb: photo.url}));
+      this.images.push(new ImageItem({src: photo.url, thumb: photo.url}));
+    }
   }
 }

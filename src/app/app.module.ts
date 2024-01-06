@@ -22,7 +22,8 @@ import { SharedModule } from './shared/shared.module';
 import { UserComponent } from './pages/users/user.component';
 import { UserCardComponent } from './components/users/user-card/user-card.component';
 import { jwtInterceptor } from './interceptors/jwt.interceptor';
-import { UserDetailsComponent } from './components/users/user-details/user-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { UserDetailsComponent } from './components/users/user-details/user-detai
     RegisterComponent,
     UserComponent,
     UserCardComponent,
-    UserDetailsComponent,
+    UsersEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +52,7 @@ import { UserDetailsComponent } from './components/users/user-details/user-detai
     MaterialModule,
     HttpClientModule,
     SharedModule,
+    NgbModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

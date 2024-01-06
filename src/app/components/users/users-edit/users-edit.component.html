@@ -1,0 +1,72 @@
+<div class="row" *ngIf="member">
+  <div class="col-4">
+      <h1>Your profile: {{member.userName}}</h1>
+  </div>
+  <div class="col-8">
+      <div class="mat-elevation-z2" *ngIf="editForm.dirty">
+          <strong>Information: </strong> You have made changes. Any unsaved changes will be lost
+      </div>
+  </div>
+  <div class="col-4">
+      <mat-card>
+          <img mat-card-image [src]="member.mainPhotoUrl" alt="{{member.userName}}" class="img-thumbnail">
+          <mat-card-content>
+              <div>
+                  <strong>Location:</strong>
+                  <p>{{member.city}}, {{member.country}}</p>
+              </div>
+              <div>
+                  <strong>Age:</strong>
+                  <p>33</p>
+              </div>
+              <div>
+                  <strong>Last Active:</strong>
+                  <p>Today</p>
+              </div>
+              <div>
+                  <strong>Member since:</strong>
+                  <p>2023-12-01</p>
+              </div>
+          </mat-card-content>
+          <mat-card-actions>
+              <button [disabled]="!editForm.dirty" form="editForm" type="submit" mat-raised-button color="primary" class="btn-block">Save Changes</button>
+          </mat-card-actions>
+      </mat-card>
+  </div>
+
+  <div class="col-8">
+      <mat-tab-group class="member-tabset">
+          <mat-tab label='About {{member.userName}}'>
+              <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+                  <h4>First Name</h4>
+                  <mat-form-field class="full-width">
+                      <textarea matInput [(ngModel)]='member.firstName'  name="firstName" [placeholder]="member.firstName" rows="1"></textarea>
+                  </mat-form-field>
+                  <h4>Last Name</h4>
+                  <mat-form-field class="full-width">
+                      <textarea matInput [(ngModel)]='member.lastName'  name="lastName" [placeholder]="member.lastName" rows="1"></textarea>
+                  </mat-form-field>
+                  <h4>Email</h4>
+                  <mat-form-field class="full-width">
+                      <textarea matInput [(ngModel)]='member.email'  name="email" [placeholder]="member.email" rows="1"></textarea>
+                  </mat-form-field>
+
+                  <h4 class="mt-2">Location Details: </h4>
+                  <div class="form-inline">
+                      <mat-form-field>
+                          <label for="city">City: </label>
+                          <input matInput [(ngModel)]='member.city' name="city" [placeholder]="member.city">
+                      </mat-form-field>
+                      <mat-form-field>
+                          <label for="country">Country: </label>
+                          <input matInput [(ngModel)]='member.country' name="country" [placeholder]="member.country">
+                      </mat-form-field>
+                  </div>
+              </form>
+          </mat-tab>
+          <mat-tab label='Edit Photos'>
+              <app-photo-editor [member]="member"></app-photo-editor>
+          </mat-tab>
+      </mat-tab-group>
+  </div>
+</div>

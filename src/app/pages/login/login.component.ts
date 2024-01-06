@@ -10,7 +10,7 @@ import { User } from '../../models/user';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
-  loginModel: User ={
+  loginModel: any ={
     userName: 'string',
     password: 'Pa$$w0rd'
   };

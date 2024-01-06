@@ -5,8 +5,10 @@ export interface Member {
   id: number
   userName: string
   email: string
-  firstName: any
-  lastName: any
+  firstName: string
+  lastName: string
+  country: string
+  city: string
   mainPhotoUrl: string
   photos: Photo[]
 }

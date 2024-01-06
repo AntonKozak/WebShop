@@ -1,7 +1,31 @@
-<p>user-details works!</p>
-<h1>{{member?.userName}}</h1>
-<h1>{{member?.userName}}</h1>
-<h1>{{member?.userName}}</h1>
-<h1>{{member?.userName}}</h1>
-<h1>{{member?.userName}}</h1>
-<h1>{{member?.userName}}</h1>
+<mat-tab-group>
+
+  <!-- About User Tab -->
+  <mat-tab label="About User">
+    <div *ngIf="member" class="user-info-container">
+      <img [src]="member.mainPhotoUrl" alt="User Photo" class="user-photo">
+      <div class="user-details">
+        <h1>{{ member.userName }}</h1>
+        <p>{{ member.email }}</p>
+      </div>
+    </div>
+    <button [routerLink]="'/users'" mat-raised-button color="primary" style="margin-bottom: 10px">
+      Back to Users
+    </button>
+  </mat-tab>
+
+  <!-- Photos Tab -->
+  <mat-tab label="Photos">
+    <div>
+      <gallery [items]="images"></gallery>
+    </div>
+  </mat-tab>
+
+  <!-- Third Tab -->
+  <mat-tab label="Third">
+    <div class="third-tab-content">
+      Content 3
+    </div>
+  </mat-tab>
+
+</mat-tab-group>
