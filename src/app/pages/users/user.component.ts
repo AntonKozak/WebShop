@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Member } from '../../models/member';
 import { MembersService } from '../../services/members.service';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -10,22 +10,20 @@ import { tap } from 'rxjs';
 })
 export class UserComponent implements OnInit {
   //parent to "components" UserCardComponent
-  members: Member [] = [];
+  members$: Observable<Member[]> | undefined;
 
   private memberService = inject(MembersService);
 
   ngOnInit(): void {
-    this.loadMembers();
+    this.members$ = this.memberService.getMembers();
+    // this.loadMembers();
   }
 
-  loadMembers(): void {
-    this.memberService.getMembers().pipe(
-      tap(members => console.log(members)
-      )
-    )
-    .subscribe({
-        next: users => this.members = users,
-        error: err => console.log(err)
-      });
-  }
+  // loadMembers(): void {
+  //   this.memberService.getMembers()
+  //   .subscribe({
+  //       next: users => this.members = users,
+  //       error: err => console.log(err)
+  //     });
+  // }
 }

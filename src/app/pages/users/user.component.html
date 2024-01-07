@@ -2,7 +2,7 @@
 <p>user works!</p>
 <p>user works!</p>
 
-<div *ngFor="let member of members">
+<div *ngFor="let member of members$ | async">
   <app-user-card [member]='member'></app-user-card>
 </div>
 <p>user works!</p>
