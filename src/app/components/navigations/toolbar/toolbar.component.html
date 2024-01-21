@@ -2,7 +2,7 @@
   <button mat-icon-button (click)="drawerToggle.emit()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span *ngIf="(accountService.currentUser$ | async) as  user">Hello {{user.userName | titlecase}}</span>
+  <span *ngIf="(accountService.currentUser$ | async) as  user"><img src="{{user.photoUrl}}"> {{user.userName | titlecase}}</span>
   <span *ngIf="!(accountService.currentUser$ | async) as  user">You want to login!</span>
 
   <button

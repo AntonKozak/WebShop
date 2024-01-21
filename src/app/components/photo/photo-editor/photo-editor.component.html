@@ -3,7 +3,10 @@
     <div>
       <img  [src]="photo.url" [alt]="photo.url">
       <div>
-        <button [disabled]="photo.isMain">Main</button>
+        <button
+        [disabled]="photo.isMain"
+        (click)="setMainPhoto(photo)"
+        >Main</button>
         <button [disabled]="photo.isMain"><mat-icon>delete</mat-icon></button>
       </div>
     </div>
