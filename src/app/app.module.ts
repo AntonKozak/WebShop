@@ -24,6 +24,8 @@ import { UserCardComponent } from './components/users/user-card/user-card.compon
 import { jwtInterceptor } from './interceptors/jwt.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
+import { PhotoUploaderComponent } from './components/photo/photo-uploader/photo-uploader.component';
+import { PhotoEditorComponent } from './components/photo/photo-editor/photo-editor.component';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { UsersEditComponent } from './components/users/users-edit/users-edit.com
     UserComponent,
     UserCardComponent,
     UsersEditComponent,
+    PhotoUploaderComponent,
+    PhotoEditorComponent,
   ],
   imports: [
     BrowserModule,

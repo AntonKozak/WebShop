@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [],
@@ -21,6 +22,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
     }),
+    FileUploadModule,
   ],
   exports: [
     FontAwesomeModule,
@@ -28,6 +30,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NgbModule,
     ToastrModule,
     NgxSpinnerModule,
+    FileUploadModule,
   ],
 })
 export class SharedModule { }
