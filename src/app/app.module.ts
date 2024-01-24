@@ -26,6 +26,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
 import { PhotoUploaderComponent } from './components/photo/photo-uploader/photo-uploader.component';
 import { PhotoEditorComponent } from './components/photo/photo-editor/photo-editor.component';
+import { TextInputComponent } from './forms/text-input/text-input.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { PhotoEditorComponent } from './components/photo/photo-editor/photo-edit
     UsersEditComponent,
     PhotoUploaderComponent,
     PhotoEditorComponent,
+    TextInputComponent,
   ],
   imports: [
     BrowserModule,
