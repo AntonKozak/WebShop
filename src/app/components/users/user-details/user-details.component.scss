@@ -1,20 +1,35 @@
 .user-info-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
+}
+
+.additional-content {
+  margin-bottom: 20px;
 }
 
 .user-photo {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  margin-right: 20px;
+  margin-top: 20px;
 }
 
 .user-details {
-  flex-grow: 1;
+  margin-top: 10px;
 }
 
 .third-tab-content {
   padding: 20px;
+}
+
+button.mat-raised-button {
+  margin-top: 10px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
 }

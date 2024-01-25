@@ -13,7 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class RegisterComponent implements OnInit{
   @Output() cancelRegister = new EventEmitter();
   registerForm: FormGroup = new FormGroup({});
-  validationErrors: string[] | undefined;
+  validationErrors: string[] = [];
 
   private accountService = inject(AccountService);
   private toastr = inject(ToastrService);
@@ -27,9 +27,9 @@ export class RegisterComponent implements OnInit{
   intitializeForm() {
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      city: ['', Validators.required],
-      country: ['', Validators.required],
+      email: ['',  Validators.email],
+      city: [''],
+      country: [''],
       password: ['', [Validators.required,
         Validators.minLength(4), Validators.maxLength(8)]],
       confirmPassword: ['', [Validators.required, this.matchValues('password')]]

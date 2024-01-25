@@ -1,0 +1,22 @@
+.content-above-cards {
+  text-align: center;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.2em;
+    color: #555;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Add your existing styling for cards and pagination below this */

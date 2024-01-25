@@ -1,31 +1,50 @@
 <mat-tab-group>
-
   <!-- About User Tab -->
   <mat-tab label="About User">
     <div *ngIf="member" class="user-info-container">
-      <img [src]="member.mainPhotoUrl" alt="User Photo" class="user-photo">
+      <div class="additional-content">
+        <p>Welcome to the profile of {{ member.userName }}!</p>
+        <p>Explore more about this user below.</p>
+      </div>
+      <img [src]="member.mainPhotoUrl" alt="User Photo" class="user-photo" />
       <div class="user-details">
         <h1>{{ member.userName }}</h1>
         <p>{{ member.email }}</p>
       </div>
     </div>
-    <button [routerLink]="'/users'" mat-raised-button color="primary" style="margin-bottom: 10px">
+    <p>
+      This is the About User tab content. Replace this with actual user
+      information.
+    </p>
+    <button
+      [routerLink]="'/users'"
+      mat-raised-button
+      color="primary"
+      style="margin-top: 10px"
+    >
       Back to Users
     </button>
   </mat-tab>
 
   <!-- Photos Tab -->
   <mat-tab label="Photos">
-    <div>
-      <gallery [items]="images"></gallery>
-    </div>
+    <p>
+      This is the Photos tab content. Replace this with an actual photo gallery.
+    </p>
+    <gallery [items]="images"></gallery>
   </mat-tab>
 
   <!-- Third Tab -->
   <mat-tab label="Third">
     <div class="third-tab-content">
-      Content 3
+      <p>
+        This is the Third tab content. Replace this with your specific content.
+      </p>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
     </div>
   </mat-tab>
-
 </mat-tab-group>

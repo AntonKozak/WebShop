@@ -8,6 +8,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { FileUploadModule } from 'ng2-file-upload';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [],
@@ -26,6 +27,7 @@ import { NgModule } from '@angular/core';
     }),
     FileUploadModule,
     ReactiveFormsModule,
+    PaginationModule.forRoot(),
   ],
   exports: [
     FontAwesomeModule,
@@ -35,6 +37,7 @@ import { NgModule } from '@angular/core';
     NgxSpinnerModule,
     FileUploadModule,
     ReactiveFormsModule,
+    PaginationModule,
   ],
 })
 export class SharedModule { }

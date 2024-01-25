@@ -65,7 +65,9 @@
               </form>
           </mat-tab>
           <mat-tab label='Edit Photos'>
-            <app-photo-editor [member]="member"></app-photo-editor>
+            <div >
+              <app-photo-editor [member]="member"></app-photo-editor>
+            </div>
           </mat-tab>
           <mat-tab label='Upload Photos'>
             <app-photo-uploader [member]="member"></app-photo-uploader>

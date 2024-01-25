@@ -1,10 +1,31 @@
-<p>user works!</p>
-<p>user works!</p>
-<p>user works!</p>
-
-<div *ngFor="let member of members$ | async">
-  <app-user-card [member]='member'></app-user-card>
+<div class="content-above-cards">
+  <h2>Welcome to our User Community</h2>
+  <p>Explore and connect with our members. Find interesting profiles and more!</p>
 </div>
-<p>user works!</p>
-<p>user works!</p>
-<p>user works!</p>
+
+<div class="card-container" fxLayout="row wrap" fxLayoutGap="16px">
+  <div
+    *ngFor="let member of members"
+    fxLayout.gt-xs="row"
+    fxLayout.lt-md="column"
+    fxLayoutAlign="space-around center"
+  >
+    <app-user-card [member]="member"></app-user-card>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center" *ngIf="pagination">
+  <pagination
+    [boundaryLinks]="true"
+    [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.pageSize"
+    [maxSize]="10"
+    [(ngModel)]="pagination.currentPage"
+    (pageChanged)="pageChanged($event)"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  >
+  </pagination>
+</div>

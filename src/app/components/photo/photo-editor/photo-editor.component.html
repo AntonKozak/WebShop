@@ -1,18 +1,21 @@
-<div >
-  <ng-container *ngFor="let photo of member?.photos" fxFlex.gt.sm="50%">
-    <div>
-      <img  [src]="photo.url" [alt]="photo.url">
-      <div>
-        <button
+<div class="card-container" fxLayout="row wrap" fxLayoutGap="16px">
+  <div class="container" *ngFor="let photo of member?.photos">
+    <img class="card-image" [src]="photo.url" [alt]="photo.url" />
+    <div class="btn-container">
+      <button
+        class="btn btn-sm btn-success"
         [disabled]="photo.isMain"
         (click)="setMainPhoto(photo)"
-        >Main</button>
-        <button
+      >
+        Main
+      </button>
+      <button
+        class="btn btn-sm btn-danger"
         [disabled]="photo.isMain"
         (click)="deletePhoto(photo.id)"
-        ><mat-icon>delete</mat-icon></button>
-      </div>
+      >
+        Delete
+      </button>
     </div>
-  </ng-container>
+  </div>
 </div>
-

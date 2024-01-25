@@ -1,0 +1,31 @@
+.container{
+  width: 200px;
+  height: 230px;
+  margin: 16px;
+  overflow: hidden;
+  margin: 4px;
+}
+
+.card-image {
+  width:100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.2s;
+
+}
+
+img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.btn-container
+{
+  display: flex;
+  justify-content: center;
+}
+
+.btn{
+  margin: 3px 3px 0 3px;
+}

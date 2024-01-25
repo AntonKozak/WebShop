@@ -1,8 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Member } from '../models/member';
 import { map, of } from 'rxjs';
+import { PaginatedResult } from '../models/pagination';
+import { User } from '../models/user';
+import { UserFilterParams } from '../models/userFilterParams';
 
 @Injectable({
   providedIn: 'root',
@@ -10,15 +13,32 @@ import { map, of } from 'rxjs';
 export class MembersService {
   baseUrl = environment.apiUrl;
   members: Member[] = [];
+  // paginatedResult: PaginatedResult<Member[]> = new PaginatedResult<Member[]>();
 
   private http = inject(HttpClient);
 
-  getMembers() {
-    if (this.members.length > 0) return of(this.members);
-    return this.http.get<Member[]>(this.baseUrl + 'users').pipe(
-      map((members) => {
-        this.members = members;
-        return members;
+  getMembers(userFilterParams: UserFilterParams) {
+    let params = new HttpParams();
+    params = params.append('pageNumber', userFilterParams.page);
+    params = params.append('pageSize', userFilterParams.itemsPerPage);
+
+    return this.getPaginatedResult<Member[]>(this.baseUrl + 'users', params);
+  }
+
+  private getPaginatedResult<T>(url: string, params: HttpParams) {
+    const paginatedResult: PaginatedResult<T> = new PaginatedResult<T>();
+
+    return this.http.get<T>(url, { observe: 'response', params }).pipe(
+      map((response) => {
+        if (response.body === null) return;
+        paginatedResult.result = response.body;
+
+        const pagination = response.headers.get('Pagination');
+
+        if (pagination) {
+          paginatedResult.pagination = JSON.parse(pagination);
+        }
+        return paginatedResult;
       })
     );
   }
