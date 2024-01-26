@@ -1,20 +1,18 @@
 
 <mat-card class="example-card" *ngIf="member" >
   <img
-  mat-card-image
   class="card-image"
-  [src]="member.mainPhotoUrl"
+  [src]="member.mainPhotoUrl || member.photoUrl"
   alt="{{member.userName}}"
   />
   <mat-card-content>
     <mat-card-title fxLayoutAlign="center">{{member.userName}}</mat-card-title>
-
   <mat-card-actions  >
 
     <button mat-icon-button routerLink="/users/{{member.userName}}">
       <mat-icon>person</mat-icon>
     </button>
-    <button mat-icon-button >
+    <button mat-icon-button  (click)="addLike(member)">
       <mat-icon >favorite</mat-icon>
     </button>
     <button mat-icon-button >

@@ -1,0 +1,50 @@
+<div class="text-center mt-3">
+  <h1>My Likes</h1>
+  <h2>
+    {{
+      predicate === "liked"
+        ? "Members or products i Like:"
+        : "Members who like me:"
+    }}
+  </h2>
+</div>
+
+<div class="container center mt-3">
+  <div class="d-flex justify-content-center">
+    <div class="btn-group" name="predicate">
+      <button class="btn btn-primary m-2" [class.active]="predicate === 'liked'" (click)="changePredicate('liked')">
+        Staff I like
+      </button>
+      <button class="btn btn-primary m-2" [class.active]="predicate === 'likedBy'" (click)="changePredicate('likedBy')">
+        Liked by me
+      </button>
+    </div>
+  </div>
+
+  <div class="card-container" fxLayout="row wrap" fxLayoutGap="16px">
+    <div
+      fxLayout.gt-xs="row"
+      fxLayout.lt-md="column"
+      fxLayoutAlign="space-around center"
+      *ngFor="let member of members"
+    >
+      <app-user-card [member]="member"></app-user-card>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center" *ngIf="pagination">
+  <pagination
+    [boundaryLinks]="true"
+    [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.pageSize"
+    [maxSize]="10"
+    [(ngModel)]="pagination.currentPage"
+    (pageChanged)="pageChanged($event)"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  >
+  </pagination>
+</div>

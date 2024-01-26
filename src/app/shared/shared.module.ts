@@ -6,7 +6,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { FileUploadModule } from 'ng2-file-upload';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
@@ -28,6 +28,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     FileUploadModule,
     ReactiveFormsModule,
     PaginationModule.forRoot(),
+    FormsModule,
   ],
   exports: [
     FontAwesomeModule,

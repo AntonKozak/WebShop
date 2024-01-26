@@ -30,6 +30,7 @@ export class UsersEditComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadMember();
+
   }
 
   loadMember() {
@@ -50,4 +51,5 @@ export class UsersEditComponent implements OnInit{
   this.toastr.success('Profile updated successfully');
   this.editForm?.reset(this.member);
   }
+
 }

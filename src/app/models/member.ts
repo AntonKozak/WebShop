@@ -10,6 +10,7 @@ export interface Member {
   country: string
   city: string
   mainPhotoUrl: string
+  photoUrl: string
   photos: Photo[]
 }
 

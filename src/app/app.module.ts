@@ -27,6 +27,7 @@ import { UsersEditComponent } from './components/users/users-edit/users-edit.com
 import { PhotoUploaderComponent } from './components/photo/photo-uploader/photo-uploader.component';
 import { PhotoEditorComponent } from './components/photo/photo-editor/photo-editor.component';
 import { TextInputComponent } from './forms/text-input/text-input.component';
+import { UserLikesComponent } from './components/likes/user-likes/user-likes.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { TextInputComponent } from './forms/text-input/text-input.component';
     PhotoUploaderComponent,
     PhotoEditorComponent,
     TextInputComponent,
+    UserLikesComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,39 +4,31 @@
   justify-content: space-around;
 }
 
+mat-card{
+  align-items: center;
+}
+mat-card-content{
+  height: 60px;
+  margin-top: 15px;;
+}
+mat-card-title{
+  height: 12px;
+}
+
 .example-card {
-  width: 200px;
-  height: 300px;
-  margin: 16px;
+  width: 180px;
+  height: 260px;
+  margin: 5px;
   overflow: hidden;
 
   .card-image {
-    width: 100%;
-    height: 100%;
+    margin-top: 8px;
+    width: 90%;
+    height: 60%;
     object-fit: cover;
-    transition: transform 0.2s;
+    transition: transform 0.5s;
   }
 
-  .mat-card-content {
-    text-align: center;
-  }
-
-  .mat-card-title {
-    font-size: 1.5em;
-    margin-bottom: 8px;
-  }
-
-  .mat-card-actions {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  button.mat-icon-button {
-    background-color: #fff;
-    border-radius: 50%;
-    height: 48px;
-    width: 48px;
-  }
 
   &:hover {
     .card-image {
