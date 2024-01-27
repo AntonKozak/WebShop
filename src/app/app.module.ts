@@ -28,6 +28,7 @@ import { PhotoUploaderComponent } from './components/photo/photo-uploader/photo-
 import { PhotoEditorComponent } from './components/photo/photo-editor/photo-editor.component';
 import { TextInputComponent } from './forms/text-input/text-input.component';
 import { UserLikesComponent } from './components/likes/user-likes/user-likes.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { UserLikesComponent } from './components/likes/user-likes/user-likes.com
     PhotoEditorComponent,
     TextInputComponent,
     UserLikesComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,6 @@ import { UserLikesComponent } from './components/likes/user-likes/user-likes.com
     SharedModule,
     NgbModule,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: jwtInterceptor, multi: true}
   ],

@@ -3,9 +3,8 @@ import { environment } from '../../environments/environment.development';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Member } from '../models/member';
 import { map, of } from 'rxjs';
-import { PaginatedResult } from '../models/pagination';
-import { User } from '../models/user';
 import { UserFilterParams } from '../models/userFilterParams';
+import { getPaginatedResult, getPaginationHeaders } from './paginationHelper';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +21,7 @@ export class MembersService {
     params = params.append('pageNumber', userFilterParams.page);
     params = params.append('pageSize', userFilterParams.itemsPerPage);
 
-    return this.getPaginatedResult<Member[]>(this.baseUrl + 'users', params);
+    return getPaginatedResult<Member[]>(this.baseUrl + 'users', params, this.http);
   }
 
   getMember(username: string) {
@@ -52,37 +51,12 @@ export class MembersService {
   }
 
   getLikes(predicate: string, pageNumber: number, pageSize: number) {
-    let params = this.getPaginationHeaders(pageNumber, pageSize);
+    let params = getPaginationHeaders(pageNumber, pageSize);
 
     params = params.append('predicate', predicate);
 
-    return this.getPaginatedResult<Member[]>(this.baseUrl + 'likes', params);
+    return getPaginatedResult<Member[]>(this.baseUrl + 'likes', params, this.http);
   }
 
-  private getPaginationHeaders(pageNumber: number, pageSize: number) {
-    let params = new HttpParams();
 
-    params = params.append('pageNumber', pageNumber.toString());
-    params = params.append('pageSize', pageSize.toString());
-
-    return params;
-  }
-
-  private getPaginatedResult<T>(url: string, params: HttpParams) {
-    const paginatedResult: PaginatedResult<T> = new PaginatedResult<T>();
-
-    return this.http.get<T>(url, { observe: 'response', params }).pipe(
-      map((response) => {
-        if (response.body === null) return;
-        paginatedResult.result = response.body;
-
-        const pagination = response.headers.get('Pagination');
-
-        if (pagination) {
-          paginatedResult.pagination = JSON.parse(pagination);
-        }
-        return paginatedResult;
-      })
-    );
-  }
 }

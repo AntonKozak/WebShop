@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',
-  styleUrl: './user-card.component.scss'
+  styleUrls: ['./user-card.component.scss']
 })
 export class UserCardComponent {
 //child to UserComponent
