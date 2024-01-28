@@ -9,6 +9,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { TimeagoModule } from 'ngx-timeago';
 
 @NgModule({
   declarations: [],
@@ -29,6 +30,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     ReactiveFormsModule,
     PaginationModule.forRoot(),
     FormsModule,
+    TimeagoModule.forRoot(),
   ],
   exports: [
     FontAwesomeModule,
@@ -39,6 +41,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     FileUploadModule,
     ReactiveFormsModule,
     PaginationModule,
+    TimeagoModule,
+    FormsModule
   ],
 })
 export class SharedModule { }

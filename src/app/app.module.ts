@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavigationComponent } from './pages/navigation/navigation.component';
@@ -16,7 +15,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
-import { AboutComponent } from './pages/about/about.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { UserComponent } from './pages/users/user.component';
@@ -29,6 +27,7 @@ import { PhotoEditorComponent } from './components/photo/photo-editor/photo-edit
 import { TextInputComponent } from './forms/text-input/text-input.component';
 import { UserLikesComponent } from './components/likes/user-likes/user-likes.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 
 @NgModule({
@@ -42,7 +41,6 @@ import { MessagesComponent } from './components/messages/messages.component';
     LoginComponent,
     HomeComponent,
     ProductsComponent,
-    AboutComponent,
     RegisterComponent,
     UserComponent,
     UserCardComponent,
@@ -52,12 +50,12 @@ import { MessagesComponent } from './components/messages/messages.component';
     TextInputComponent,
     UserLikesComponent,
     MessagesComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
     FlexLayoutModule,
     MaterialModule,
     HttpClientModule,

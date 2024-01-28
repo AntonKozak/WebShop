@@ -25,16 +25,25 @@ export class MessagesComponent implements OnInit{
     this.messageService
       .getMessages(this.pageNumber, this.pageSize, this.container)
       .subscribe({
-        next: (response) => {
+        next: (response: any) => {
           this.messages = response?.result;
           this.pagination = response?.pagination;
         },
       });
   }
 
+  changeContainer(newContainer: string) {
+    this.container = newContainer;
+    this.loadMessages();
+  }
+
   pageChanged(event: any) {
     this.pageNumber = event.page;
     this.loadMessages();
+  }
+
+  getMessagesThread() {
+  return 
   }
 
   deleteMessage(id: number) {

@@ -1,6 +1,6 @@
 <mat-tab-group>
   <!-- About User Tab -->
-  <mat-tab label="About User">
+  <mat-tab label="About User" >
     <div *ngIf="member" class="user-info-container">
       <div class="additional-content">
         <p>Welcome to the profile of {{ member.userName }}!</p>
@@ -27,12 +27,21 @@
   </mat-tab>
 
   <!-- Photos Tab -->
-  <mat-tab label="Photos">
+  <mat-tab label="Photos" #photoTab>
     <p>
       This is the Photos tab content. Replace this with an actual photo gallery.
     </p>
-    <gallery [items]="images"></gallery>
+    <gallery *ngIf="photoTab.isActive" [items]="images" thumbPosition='left'></gallery>
   </mat-tab>
 
+  <!-- Messages Tab -->
+  <mat-tab label="Messages">
+    <p>
+      This is the Messages tab content. Replace this with an actual message
+      thread.
+    </p>
+    <app-message-user></app-message-user>
+  </mat-tab>
+  
 </mat-tab-group>
 

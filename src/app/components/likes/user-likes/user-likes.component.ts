@@ -28,7 +28,7 @@ changePredicate(newPredicate: string) {
 
 loadLikes() {
   this.membersService.getLikes(this.predicate, this.pageNumber, this.pageSize).subscribe({
-    next: (response) => {
+    next: (response: any) => {
       if (response === undefined) return;
       this.members = response.result;
       this.pagination = response.pagination;
