@@ -1,48 +1,38 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, inject } from '@angular/core';
 import { Message } from '../../../models/message';
 import { CommonModule } from '@angular/common';
 import { MessageService } from '../../../services/message.service';
-import { Member } from '../../../models/member';
-import { MembersService } from '../../../services/members.service';
-import { ActivatedRoute } from '@angular/router';
-import { TimeagoPipe } from 'ngx-timeago';
+import { FormsModule, NgForm } from '@angular/forms';
+import { TimeagoModule } from 'ngx-timeago';
 
 @Component({
   selector: 'app-message-user',
   standalone: true,
   templateUrl: './message-user.component.html',
   styleUrl: './message-user.component.scss',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, TimeagoModule],
 })
-export class MessageUserComponent implements OnInit{
-  member: Member | undefined;
-  messages: Message[] = [];
-  
-  private memberServise = inject(MembersService);
+export class MessageUserComponent {
+  @ViewChild('messageForm') messageForm?: NgForm
+  @Input() username?: string;
+  @Input() messages?: Message[];
+
+  messageContent = '';
+
   private messageService = inject(MessageService);
-  private route = inject(ActivatedRoute);
-  ngOnInit(): void {
-    this.loadTheUser();
+
+  sendMessage() {
+    if (!this.username) return;
+    this.messageService
+      .sendMessage(this.username, this.messageContent)
+      .subscribe({
+        next: (message) => {
+          this.messages?.push(message);
+          this.messageForm?.reset();
+        },
+      });
   }
 
-  loadTheUser(): void {
-    const username = this.route.snapshot.paramMap.get('username');
-    if (!username) return;
-    this.memberServise.getMember(username).subscribe({
-      next: (member) => {
-        this.member = member
-        this.loadMessagaes();
-      }
-    })
-  }
 
-  loadMessagaes() {
-    if (!this.member?.userName) return;
-    this.messageService.getMessageThread(this.member.userName).subscribe({
-      next: (messages) => {
-        this.messages = messages;
-      }
-    });
-  }
 
 }

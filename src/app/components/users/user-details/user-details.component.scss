@@ -1,41 +1,20 @@
-.user-info-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.img-thumbnail {
+  margin: 25px;
+  width: 85%;
+  height: 85%;
 }
 
-.additional-content {
-  margin-bottom: 20px;
+.card-body {
+  padding: 0 25px;
 }
 
-.user-photo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-top: 20px;
+.card-footer {
+  padding: 10px 15px;
+  background-color: #fff;
+  border-top: none;
 }
 
-.user-details {
-  margin-top: 10px;
-}
-
-.third-tab-content {
-  padding: 20px;
-}
-
-button.mat-raised-button {
-  margin-top: 10px;
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-gallery{
-  height: 80vh;
-  width: 70vw;
-  margin: 15px;
+tab{
+  height: 70vh;
+  width: 45vw;
 }

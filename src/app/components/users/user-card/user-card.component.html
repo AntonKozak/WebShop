@@ -15,7 +15,11 @@
     <button mat-icon-button  (click)="addLike(member)">
       <mat-icon >favorite</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button 
+    mat-icon-button 
+    routerLink="/users/{{member.userName}}" 
+    [queryParams]="{tab: 'Messages'}"
+    ><!-- router take us to the "/user/'name'" and query open there tab with value 'Messages' -->
       <mat-icon >email</mat-icon>
     </button>
 

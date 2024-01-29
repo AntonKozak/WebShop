@@ -27,12 +27,13 @@
                 <th style="width: 30%"></th>
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let message of messages"
+        <tbody class='align-middle'>
+            <tr [hidden]='loading' *ngFor="let message of messages"
             routerLink="{{container === 'Outbox' 
             ? '/users/' + message.recipientUsername 
             : '/users/' + message.senderUsername
-            }}">
+            }}"
+            [queryParams]="{tab: 'Messages'}">
                 <td>{{message.content}}</td>
                 <td>
                     <div *ngIf="container === 'Outbox'">
@@ -47,6 +48,7 @@
                         <strong>{{message.senderUsername | titlecase}}</strong>
                     </div>
                 </td>
+                <td>{{message.messageSent | date:'short'}}</td>
                 <td>
                     <button (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)"
                         class='btn btn-danger'>Delete</button>

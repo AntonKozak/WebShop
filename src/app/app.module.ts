@@ -28,6 +28,7 @@ import { TextInputComponent } from './forms/text-input/text-input.component';
 import { UserLikesComponent } from './components/likes/user-likes/user-likes.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ChatComponent } from './pages/chat/chat.component';
+import { userDetailedResolver } from './resolves/user-detailed.resolver';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ChatComponent } from './pages/chat/chat.component';
     NgbModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: jwtInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: jwtInterceptor, multi: true},
+    { provide: 'userDetailedResolver', useValue: userDetailedResolver},
   ],
   bootstrap: [AppComponent],
 })

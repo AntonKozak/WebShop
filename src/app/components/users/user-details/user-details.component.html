@@ -1,47 +1,39 @@
-<mat-tab-group>
-  <!-- About User Tab -->
-  <mat-tab label="About User" >
-    <div *ngIf="member" class="user-info-container">
-      <div class="additional-content">
-        <p>Welcome to the profile of {{ member.userName }}!</p>
-        <p>Explore more about this user below.</p>
+<div class="row">
+  <div class="col-4">
+      <div class="card">
+          <img src="{{member.mainPhotoUrl}}" alt="{{member.userName}}"
+              class="card-img-top img-thumbnail">
+          <div class="card-body">
+              <div>
+                  <strong>Location:</strong>
+                  <p>{{member.city}}, {{member.country}}</p>
+                  <h4>email</h4>
+              <p>{{member.email}}</p>
+              </div>
+          </div>
+          <div class="card-footer">
+              <div class="btn-group d-flex">
+                  <button class="btn btn-primary">Like</button>
+                  
+                  <button  class="btn btn-success" (click)="selectTab('Messages') ">Message</button> <!-- activating Tab(Messages) -->
+              </div>
+          </div>
       </div>
-      <img [src]="member.mainPhotoUrl" alt="User Photo" class="user-photo" />
-      <div class="user-details">
-        <h1>{{ member.userName }}</h1>
-        <p>{{ member.email }}</p>
-      </div>
-    </div>
-    <p>
-      This is the About User tab content. Replace this with actual user
-      information.
-    </p>
-    <button
-      [routerLink]="'/users'"
-      mat-raised-button
-      color="primary"
-      style="margin-top: 10px"
-    >
-      Back to Users
-    </button>
-  </mat-tab>
-
-  <!-- Photos Tab -->
-  <mat-tab label="Photos" #photoTab>
-    <p>
-      This is the Photos tab content. Replace this with an actual photo gallery.
-    </p>
-    <gallery *ngIf="photoTab.isActive" [items]="images" thumbPosition='left'></gallery>
-  </mat-tab>
-
-  <!-- Messages Tab -->
-  <mat-tab label="Messages">
-    <p>
-      This is the Messages tab content. Replace this with an actual message
-      thread.
-    </p>
-    <app-message-user></app-message-user>
-  </mat-tab>
-  
-</mat-tab-group>
-
+  </div>
+  <div class="col-8">
+      <tabset class="member-tabset" #memberTabs >
+          <tab heading="About {{member.userName}}" (selectTab)="onTabActivated($event)">
+              <h4>Name</h4>
+              <p>{{member.firstName}}</p>
+              <h4>Family</h4>
+              <p>{{member.lastName}}</p>
+          </tab>
+          <tab heading="Photos" #photoTab="tab" (selectTab)="onTabActivated($event)">
+              <gallery *ngIf="photoTab.active" [items]="images" class="gallery" thumbPosition='left'></gallery>
+          </tab>
+          <tab heading="Messages" (selectTab)="onTabActivated($event)">
+              <app-message-user [username]="member.userName" [messages]="messages" ></app-message-user>
+          </tab>
+      </tabset>
+  </div>
+</div>
