@@ -4,13 +4,14 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { authGuard } from './guards/auth.guard';
+import { authGuard } from './guards/authentication/auth.guard';
 import { UserComponent } from './pages/users/user.component';
 import { UserDetailsComponent } from './components/users/user-details/user-details.component';
 import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { MessageUserComponent } from './components/messages/message-user/message-user.component';
 import { AdminPanelComponent } from './pages/admin/admin-panel/admin-panel.component';
+import { adminGuard } from './guards/admin/admin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -29,7 +30,7 @@ const routes: Routes = [
       { path: 'users/:username', component: UserDetailsComponent, resolve: {member: 'userDetailedResolver'}},
       { path: 'user/edit', component: UsersEditComponent },
       { path: 'messages', component: MessageUserComponent },
-      { path: 'admin', component: AdminPanelComponent },
+      { path: 'admin', component: AdminPanelComponent, canActivate: [adminGuard]},
     ],
   },
 ];

@@ -11,7 +11,7 @@ import { User } from '../models/user';
 export class AccountService {
   baseURL = environment.apiUrl;
 
-  private currentUserSource = new BehaviorSubject<LoggedUser | null>(null);
+  private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 
   private http = inject(HttpClient);
