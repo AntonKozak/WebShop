@@ -14,6 +14,7 @@ export class SidenavComponent {
     { name: 'Chat', icon: 'message', link: '/chat' },
     { name: 'Users', icon: 'contact_mail', link: '/users' },
     { name: 'Settings', icon: 'settings', link: '/user/edit' },
+    { name: 'Admin', icon: 'security', link: '/admin' },
     { name: 'Login', icon: 'login', link: '/login' },
   ];
 }

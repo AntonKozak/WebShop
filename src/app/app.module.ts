@@ -29,6 +29,7 @@ import { UserLikesComponent } from './components/likes/user-likes/user-likes.com
 import { MessagesComponent } from './components/messages/messages.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { userDetailedResolver } from './resolves/user-detailed.resolver';
+import { AdminPanelComponent } from './pages/admin/admin-panel/admin-panel.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { userDetailedResolver } from './resolves/user-detailed.resolver';
     UserLikesComponent,
     MessagesComponent,
     ChatComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { UserDetailsComponent } from './components/users/user-details/user-detai
 import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { MessageUserComponent } from './components/messages/message-user/message-user.component';
+import { AdminPanelComponent } from './pages/admin/admin-panel/admin-panel.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: 'users/:username', component: UserDetailsComponent, resolve: {member: 'userDetailedResolver'}},
       { path: 'user/edit', component: UsersEditComponent },
       { path: 'messages', component: MessageUserComponent },
+      { path: 'admin', component: AdminPanelComponent },
     ],
   },
 ];
