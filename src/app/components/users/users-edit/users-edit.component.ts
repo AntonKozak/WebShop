@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, inject} from '@angular/core';
 import { Member } from '../../../models/member';
 import { User } from '../../../models/user';
-import { AccountService } from '../../../services/account.service';
-import { MembersService } from '../../../services/members.service';
+import { AccountService } from '../../../services/account/account.service';
+import { MembersService } from '../../../services/members/members.service';
 import { take } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
@@ -36,7 +36,7 @@ export class UsersEditComponent implements OnInit{
   loadMember() {
     if (!this.user) {return;}
 
-    this.memberService.getMember(this.user?.userName).subscribe(member => {
+    this.memberService.getMember(this.user?.username).subscribe(member => {
       this.member = member;
     })
   }

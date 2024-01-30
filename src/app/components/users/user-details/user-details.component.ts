@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { Member } from '../../../models/member';
-import { MembersService } from '../../../services/members.service';
+import { MembersService } from '../../../services/members/members.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { GalleryItem, GalleryModule, ImageItem } from 'ng-gallery';
@@ -8,7 +8,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MessageUserComponent } from '../../messages/message-user/message-user.component';
 import { TabDirective, TabsModule, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { Message } from '../../../models/message';
-import { MessageService } from '../../../services/message.service';
+import { MessageService } from '../../../services/messages/message.service';
 
 @Component({
   selector: 'app-user-details',

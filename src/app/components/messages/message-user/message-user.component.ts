@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild, inject } from '@angular/core';
 import { Message } from '../../../models/message';
 import { CommonModule } from '@angular/common';
-import { MessageService } from '../../../services/message.service';
+import { MessageService } from '../../../services/messages/message.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TimeagoModule } from 'ngx-timeago';
 

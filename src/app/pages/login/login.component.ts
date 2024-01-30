@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { AccountService } from '../../services/account.service';
+import { AccountService } from '../../services/account/account.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../../models/user';

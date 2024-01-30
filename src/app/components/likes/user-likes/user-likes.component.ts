@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Member } from '../../../models/member';
-import { MembersService } from '../../../services/members.service';
+import { MembersService } from '../../../services/members/members.service';
 import { Pagination } from '../../../models/pagination';
 
 @Component({

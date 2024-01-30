@@ -1,11 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Member } from '../../models/member';
-import { MembersService } from '../../services/members.service';
+import { MembersService } from '../../services/members/members.service';
 import { Observable, take, tap } from 'rxjs';
 import { Pagination } from '../../models/pagination';
 import { User } from '../../models/user';
 import { UserFilterParams } from '../../models/userFilterParams';
-import { AccountService } from '../../services/account.service';
+import { AccountService } from '../../services/account/account.service';
 
 @Component({
   selector: 'app-user',
@@ -50,7 +50,7 @@ export class UserComponent implements OnInit {
         }
       },
     });
-    console.log(this.user?.userName);
+    console.log(this.user?.username);
   }
 
   pageChanged(event: any) {

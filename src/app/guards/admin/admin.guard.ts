@@ -1,26 +1,28 @@
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
-import { AccountService } from '../../services/account.service';
+import { AccountService } from '../../services/account/account.service';
 import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs';
 
 export const adminGuard: CanActivateFn = (route, state) => {
 
   const accountService = inject(AccountService);
-  const toast = inject(ToastrService);
+  const toastr = inject(ToastrService);
 
-  return accountService.currentUser$.pipe(
-    map((user) => {
+  const userRoles = accountService.currentUser$.pipe(
+    map(user => {
       if (!user) return false;
-      if(user.roles === undefined) return false;
-
-      if(user.roles.includes('Admin') || user.roles.includes('Moderator')) {
+      console.log(user.roles);
+      if (user.roles === undefined)return false; 
+      
+      if (user.roles.includes('Admin') || user.roles.includes('Moderator')) {
         return true;
       } else {
-        toast.error('You are not authorized to access this page!')
+        toastr.error('You cannot enter this area');
         return false;
       }
+    })
+  )
 
-    }),
-  );
+  return userRoles;
 };

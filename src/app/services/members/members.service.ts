@@ -1,10 +1,10 @@
 import { Injectable, inject } from '@angular/core';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../../environments/environment.development';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Member } from '../models/member';
+import { Member } from '../../models/member';
 import { map, of } from 'rxjs';
-import { UserFilterParams } from '../models/userFilterParams';
-import { getPaginatedResult, getPaginationHeaders } from './paginationHelper';
+import { UserFilterParams } from '../../models/userFilterParams';
+import { getPaginatedResult, getPaginationHeaders } from '../paginationHelper';
 
 @Injectable({
   providedIn: 'root',

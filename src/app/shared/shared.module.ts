@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TimeagoModule } from 'ngx-timeago';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [],
@@ -31,6 +33,8 @@ import { TimeagoModule } from 'ngx-timeago';
     PaginationModule.forRoot(),
     FormsModule,
     TimeagoModule.forRoot(),
+    TabsModule.forRoot(),
+    ModalModule.forRoot(),
   ],
   exports: [
     FontAwesomeModule,
@@ -42,7 +46,9 @@ import { TimeagoModule } from 'ngx-timeago';
     ReactiveFormsModule,
     PaginationModule,
     TimeagoModule,
-    FormsModule
+    FormsModule,
+    TabsModule,
+    ModalModule,
   ],
 })
 export class SharedModule { }

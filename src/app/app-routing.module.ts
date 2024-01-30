@@ -5,7 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { authGuard } from './guards/authentication/auth.guard';
-import { UserComponent } from './pages/users/user.component';
+import { UserComponent } from './pages/user/user.component';
 import { UserDetailsComponent } from './components/users/user-details/user-details.component';
 import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
 import { ChatComponent } from './pages/chat/chat.component';
@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'chat', component: ChatComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'admin', component: AdminPanelComponent, canActivate: [adminGuard]},
 
   {
     path: '',
@@ -30,7 +31,6 @@ const routes: Routes = [
       { path: 'users/:username', component: UserDetailsComponent, resolve: {member: 'userDetailedResolver'}},
       { path: 'user/edit', component: UsersEditComponent },
       { path: 'messages', component: MessageUserComponent },
-      { path: 'admin', component: AdminPanelComponent, canActivate: [adminGuard]},
     ],
   },
 ];

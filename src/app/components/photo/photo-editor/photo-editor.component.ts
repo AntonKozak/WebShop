@@ -1,10 +1,10 @@
 import { Component, Input, inject } from '@angular/core';
 import { Member } from '../../../models/member';
 import { GalleryItem } from 'ng-gallery';
-import { MembersService } from '../../../services/members.service';
+import { MembersService } from '../../../services/members/members.service';
 import { Photo } from '../../../models/photos';
 import { User } from '../../../models/user';
-import { AccountService } from '../../../services/account.service';
+import { AccountService } from '../../../services/account/account.service';
 import { take } from 'rxjs';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
-import { AccountService } from '../../../services/account.service';
+import { AccountService } from '../../../services/account/account.service';
 
 @Component({
   selector: 'app-toolbar',

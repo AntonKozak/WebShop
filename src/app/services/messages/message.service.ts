@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { getPaginatedResult, getPaginationHeaders } from './paginationHelper';
-import { Message } from '../models/message';
+import { getPaginatedResult, getPaginationHeaders } from '../paginationHelper';
+import { Message } from '../../models/message';
 
 @Injectable({
   providedIn: 'root',

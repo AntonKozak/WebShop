@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Member } from '../../../models/member';
 import { environment } from '../../../../environments/environment.development';
 import { User } from '../../../models/user';
-import { AccountService } from '../../../services/account.service';
+import { AccountService } from '../../../services/account/account.service';
 import { take } from 'rxjs';
 import { FileUploader } from 'ng2-file-upload';
 

@@ -17,7 +17,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { SharedModule } from './shared/shared.module';
-import { UserComponent } from './pages/users/user.component';
+import { UserComponent } from './pages/user/user.component';
 import { UserCardComponent } from './components/users/user-card/user-card.component';
 import { jwtInterceptor } from './interceptors/jwt.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -30,6 +30,10 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { userDetailedResolver } from './resolves/user-detailed.resolver';
 import { AdminPanelComponent } from './pages/admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './directives/has-role.directive';
+import { UserManagementComponent } from './pages/admin/user-management/user-management.component';
+import { PhotoManagementComponent } from './pages/admin/photo-management/photo-management.component';
+import { ModalWindowComponent } from './components/modal-window/modal-window.component';
 
 
 @NgModule({
@@ -54,6 +58,10 @@ import { AdminPanelComponent } from './pages/admin/admin-panel/admin-panel.compo
     MessagesComponent,
     ChatComponent,
     AdminPanelComponent,
+    HasRoleDirective,
+    UserManagementComponent,
+    PhotoManagementComponent,
+    ModalWindowComponent,
   ],
   imports: [
     BrowserModule,

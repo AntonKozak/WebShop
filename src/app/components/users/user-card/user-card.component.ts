@@ -1,6 +1,6 @@
 import { Component, Input, inject } from '@angular/core';
 import { Member } from '../../../models/member';
-import { MembersService } from '../../../services/members.service';
+import { MembersService } from '../../../services/members/members.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

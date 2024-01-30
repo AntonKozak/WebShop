@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AccountService } from '../../../services/account/account.service';
 
 const Small = 720;
 
@@ -8,13 +9,15 @@ const Small = 720;
   styleUrl: './sidenav.component.scss',
 })
 export class SidenavComponent {
+
+  public accountService = inject(AccountService);
+
   navList = [
-    { name: 'Home', icon: 'home', link: '/home' },
-    { name: 'Products', icon: 'category', link: '/products'},
-    { name: 'Chat', icon: 'message', link: '/chat' },
-    { name: 'Users', icon: 'contact_mail', link: '/users' },
-    { name: 'Settings', icon: 'settings', link: '/user/edit' },
-    { name: 'Admin', icon: 'security', link: '/admin' },
-    { name: 'Login', icon: 'login', link: '/login' },
+    { name: 'Home', icon: 'home', link: '/home', role: 'User' },
+    { name: 'Products', icon: 'category', link: '/products', role: 'User'},
+    { name: 'Chat', icon: 'message', link: '/chat', role: 'User' },
+    { name: 'Users', icon: 'contact_mail', link: '/users', role: 'User' },
+    { name: 'Settings', icon: 'settings', link: '/user/edit', role: 'User' },
+    { name: 'Login', icon: 'login', link: '/login', role: 'Admin'}
   ];
 }

@@ -1,13 +1,21 @@
 <app-toolbar (drawerToggle)="drawer.toggle()"></app-toolbar>
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer mode="side" opened="true">
-    <mat-list >
-      <mat-list-item
-        *ngFor="let nav of navList"
-        [routerLink]="nav.link"
-        routerLinkActive="active"
-      >
-      <div fxLayoutAlign="start center" >
+    <mat-list>
+      <!--   *appHasRole="['Admin']" working with *ngIf="accountService.currentUser$ | async" together -->
+      <ng-container *ngIf="accountService.currentUser$ | async">
+        <mat-list-item *appHasRole="['Admin', 'Moderator']" [routerLink]="'/admin'" routerLinkActive="active">
+          <div fxLayoutAlign="start center">
+            <div style='margin-right: 5px;' fxLayoutAlign="none start">
+              <mat-icon matListItemIcon>security</mat-icon>
+            </div>
+            <div matListItemTitle>Admin</div>
+          </div>
+        </mat-list-item>
+      </ng-container>
+
+      <mat-list-item *ngFor="let nav of navList" [routerLink]="nav.link" routerLinkActive="active">
+        <div fxLayoutAlign="start center">
           <div style='margin-right: 5px;' fxLayoutAlign="none start">
             <mat-icon matListItemIcon>{{ nav.icon }}</mat-icon>
           </div>
