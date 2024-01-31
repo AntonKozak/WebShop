@@ -50,7 +50,6 @@ export class UserComponent implements OnInit {
         }
       },
     });
-    console.log(this.user?.username);
   }
 
   pageChanged(event: any) {

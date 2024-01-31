@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { Member } from '../../../models/member';
 import { MembersService } from '../../../services/members/members.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
@@ -28,7 +28,7 @@ import { User } from '../../../models/user';
     TabsModule,
   ],
 })
-export class UserDetailsComponent implements OnInit {
+export class UserDetailsComponent implements OnInit, OnDestroy {
   @ViewChild('memberTabs', {static: true}) memberTabs?: TabsetComponent | undefined;
   member: Member = {} as Member;
   images: GalleryItem[] = [];
@@ -37,13 +37,13 @@ export class UserDetailsComponent implements OnInit {
   user?: User;
   
   //Getting access to the route parameters of the current route
-
   constructor(
     private accountService: AccountService,
     private route: ActivatedRoute,
     private messageService: MessageService,
     public presenceService: PresenceService
-  ) {this.accountService.currentUser$.pipe(take(1)).subscribe({
+  ) {
+    this.accountService.currentUser$.pipe(take(1)).subscribe({
     next: user => {
       if (user) this.user = user;
     }
@@ -65,6 +65,10 @@ export class UserDetailsComponent implements OnInit {
     this.getImages();
   }
 
+  ngOnDestroy(): void {
+    this.messageService.stopHubConnection();
+  }
+
   selectTab(heading: string) {
     if (this.memberTabs) {
       this.memberTabs.tabs.find((m) => m.heading === heading)!.active = true;
@@ -73,8 +77,10 @@ export class UserDetailsComponent implements OnInit {
 
   onTabActivated(data: TabDirective) {
     this.activeTab = data;
-    if (this.activeTab.heading === 'Messages' && this.member) {
-      this.loadMessages();
+    if (this.activeTab.heading === 'Messages') {
+      this.messageService.createHubConnection(this.user!, this.member.userName);
+    }else{
+      this.messageService.stopHubConnection();
     }
   }
 

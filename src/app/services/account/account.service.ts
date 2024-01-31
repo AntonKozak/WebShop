@@ -3,8 +3,8 @@ import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
 import { LoggedUser } from '../../models/loggedUser';
 import { environment } from '../../../environments/environment.development';
-import { User } from '../../models/user';
 import { PresenceService } from '../presence/presence.service';
+import { User } from '../../models/user';
 
 @Injectable({
   providedIn: 'root',
