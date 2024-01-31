@@ -9,7 +9,7 @@ mat-card{
 }
 mat-card-content{
   height: 60px;
-  margin-top: 15px;;
+  margin-top: 8px;;
 }
 mat-card-title{
   height: 12px;
@@ -35,4 +35,18 @@ mat-card-title{
       transform: scale(1.1);
     }
   }
+}
+
+@keyframes fa-blink {
+  0% {opacity: 1;}
+  100% {opacity: 0.4;}
+}
+
+.is-online {
+  animation: fa-blink 1.5s linear infinite;
+  color: rgb(1, 189, 42);
+}
+
+.is-offline {
+  color: #000000;
 }

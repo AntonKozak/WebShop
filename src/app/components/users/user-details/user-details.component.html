@@ -1,39 +1,43 @@
 <div class="row">
-  <div class="col-4">
-      <div class="card">
-          <img src="{{member.mainPhotoUrl}}" alt="{{member.userName}}"
-              class="card-img-top img-thumbnail">
-          <div class="card-body">
-              <div>
-                  <strong>Location:</strong>
-                  <p>{{member.city}}, {{member.country}}</p>
-                  <h4>email</h4>
-              <p>{{member.email}}</p>
-              </div>
-          </div>
-          <div class="card-footer">
-              <div class="btn-group d-flex">
-                  <button class="btn btn-primary">Like</button>
-                  
-                  <button  class="btn btn-success" (click)="selectTab('Messages') ">Message</button> <!-- activating Tab(Messages) -->
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="col-8">
-      <tabset class="member-tabset" #memberTabs >
-          <tab heading="About {{member.userName}}" (selectTab)="onTabActivated($event)">
-              <h4>Name</h4>
-              <p>{{member.firstName}}</p>
-              <h4>Family</h4>
-              <p>{{member.lastName}}</p>
-          </tab>
-          <tab heading="Photos" #photoTab="tab" (selectTab)="onTabActivated($event)">
-              <gallery *ngIf="photoTab.active" [items]="images" class="gallery" thumbPosition='left'></gallery>
-          </tab>
-          <tab heading="Messages" (selectTab)="onTabActivated($event)">
-              <app-message-user [username]="member.userName" [messages]="messages" ></app-message-user>
-          </tab>
-      </tabset>
-  </div>
+    <div class="col-4">
+        <div class="card">
+            <img src="{{member.mainPhotoUrl}}" alt="{{member.userName}}" class="card-img-top img-thumbnail">
+            <div class="card-body">
+                
+                <div>
+                    <div class="text-success mb-2" *ngIf="(presenceService.onlaineUsers$ | async)?.includes(member.userName)">
+                    Online now  
+                </div>
+                    <strong>Location:</strong>
+                    <p>{{member.city}}, {{member.country}}</p>
+                    <h4>email</h4>
+                    <p>{{member.email}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <button class="btn btn-primary">Like</button>
+
+                    <button class="btn btn-success" (click)="selectTab('Messages') ">Message</button>
+                    <!-- activating Tab(Messages) -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <tabset class="member-tabset" #memberTabs>
+            <tab heading="About {{member.userName}}" (selectTab)="onTabActivated($event)">
+                <h4>Name</h4>
+                <p>{{member.firstName}}</p>
+                <h4>Family</h4>
+                <p>{{member.lastName}}</p>
+            </tab>
+            <tab heading="Photos" #photoTab="tab" (selectTab)="onTabActivated($event)">
+                <gallery *ngIf="photoTab.active" [items]="images" class="gallery" thumbPosition='left'></gallery>
+            </tab>
+            <tab heading="Messages" (selectTab)="onTabActivated($event)">
+                <app-message-user [username]="member.userName" [messages]="messages"></app-message-user>
+            </tab>
+        </tabset>
+    </div>
 </div>

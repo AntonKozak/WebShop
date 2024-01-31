@@ -9,6 +9,10 @@ import { MessageUserComponent } from '../../messages/message-user/message-user.c
 import { TabDirective, TabsModule, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { Message } from '../../../models/message';
 import { MessageService } from '../../../services/messages/message.service';
+import { PresenceService } from '../../../services/presence/presence.service';
+import { AccountService } from '../../../services/account/account.service';
+import { take } from 'rxjs';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-user-details',
@@ -30,10 +34,20 @@ export class UserDetailsComponent implements OnInit {
   images: GalleryItem[] = [];
   activeTab: TabDirective | undefined;
   messages: Message[] = [];
+  user?: User;
+  
+  //Getting access to the route parameters of the current route
 
-  private memberServise = inject(MembersService);
-  private route = inject(ActivatedRoute); //Getting access to the route parameters of the current route
-  private messageService = inject(MessageService);
+  constructor(
+    private accountService: AccountService,
+    private route: ActivatedRoute,
+    private messageService: MessageService,
+    public presenceService: PresenceService
+  ) {this.accountService.currentUser$.pipe(take(1)).subscribe({
+    next: user => {
+      if (user) this.user = user;
+    }
+  })}
 
   ngOnInit(): void {
     this.route.data.subscribe({

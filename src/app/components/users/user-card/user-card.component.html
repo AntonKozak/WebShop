@@ -7,8 +7,8 @@
   />
   <mat-card-content>
     <mat-card-title fxLayoutAlign="center">{{member.userName}}</mat-card-title>
-  <mat-card-actions  >
-
+    <mat-card-actions  >
+      
     <button mat-icon-button routerLink="/users/{{member.userName}}">
       <mat-icon>person</mat-icon>
     </button>
@@ -20,11 +20,14 @@
     routerLink="/users/{{member.userName}}" 
     [queryParams]="{tab: 'Messages'}"
     ><!-- router take us to the "/user/'name'" and query open there tab with value 'Messages' -->
-      <mat-icon >email</mat-icon>
-    </button>
-
-  </mat-card-actions>
+    <mat-icon >email</mat-icon>
+  </button>
+  
+</mat-card-actions>
 
 </mat-card-content>
+<span class='status-indicator' [class.is-online]='(presenceService.onlaineUsers$ | async)?.includes(member.userName)'>
+  {{ (presenceService.onlaineUsers$ | async)?.includes(member.userName) ? 'Online' : 'Offline' }}
+</span>
 </mat-card>
 

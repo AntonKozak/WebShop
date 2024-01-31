@@ -18,19 +18,17 @@ export class UsersEditComponent implements OnInit{
   member: Member | undefined;
   user: User | null = null;
 
-  private accountService = inject(AccountService);
-  private memberService = inject(MembersService);
-  private toastr = inject(ToastrService)
 
-  constructor() {
+  constructor(private accountService: AccountService, private memberService: MembersService,
+    private toastr: ToastrService) {
+    
     this.accountService.currentUser$.pipe(take(1)).subscribe({
-      next: (user) => this.user = user,
-    })
-   }
+      next: user => this.user = user
+    });
+  }
 
   ngOnInit(): void {
     this.loadMember();
-
   }
 
   loadMember() {
@@ -41,14 +39,12 @@ export class UsersEditComponent implements OnInit{
   }
 
   updateMember() {
-  this.memberService.updateMember(this.editForm?.value).subscribe(() => {
-    next:
-    this.toastr.success('Profile updated successfully');
-    this.editForm?.reset(this.member);}
-
-  );
-  this.toastr.success('Profile updated successfully');
-  this.editForm?.reset(this.member);
+    this.memberService.updateMember(this.editForm?.value).subscribe({
+      next: _ => {
+        this.toastr.success('Profile updated successfully');
+        this.editForm?.reset(this.member);
+      }
+    })
   }
 
 }
