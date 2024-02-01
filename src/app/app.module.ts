@@ -34,7 +34,7 @@ import { HasRoleDirective } from './directives/has-role.directive';
 import { UserManagementComponent } from './pages/admin/user-management/user-management.component';
 import { PhotoManagementComponent } from './pages/admin/photo-management/photo-management.component';
 import { ModalWindowComponent } from './components/modal-window/modal-window.component';
-
+import { CustomRouteReuseStrategy } from './services/customRouteReuse/customRouteReuseStrategy';
 
 @NgModule({
   declarations: [
@@ -74,8 +74,14 @@ import { ModalWindowComponent } from './components/modal-window/modal-window.com
     NgbModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: jwtInterceptor, multi: true},
-    { provide: 'userDetailedResolver', useValue: userDetailedResolver},
+    // Configure HTTP interceptor to add JWT token to outgoing requests
+    { provide: HTTP_INTERCEPTORS, useClass: jwtInterceptor, multi: true },
+
+    // Resolver for resolving detailed user data in routes
+    { provide: 'userDetailedResolver', useValue: userDetailedResolver },
+
+    //  to control how Angular reuses routes when navigating between them. 
+    { provide: CustomRouteReuseStrategy, useClass: CustomRouteReuseStrategy },
   ],
   bootstrap: [AppComponent],
 })

@@ -12,15 +12,15 @@ import { TimeagoModule } from 'ngx-timeago';
   styleUrl: './message-user.component.scss',
   imports: [CommonModule, FormsModule, TimeagoModule],
 })
-export class MessageUserComponent {
+export class MessageUserComponent{
   @ViewChild('messageForm') messageForm?: NgForm
   @Input() username?: string;
-  @Input() messages?: Message[];
 
   messageContent = '';
 
   public messageService = inject(MessageService);
 
+  
   sendMessage() {
     if (!this.username) return;
     this.messageService
