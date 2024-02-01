@@ -29,11 +29,24 @@ export class PresenceService {
     this.hubConnection.start().catch((error) => console.log(error));
       //UserIsOnline should match in the api PresenceHub.cs
     this.hubConnection.on('UserIsOnline', (userName) => {
-      this.toastr.info(' has connected');
-    });
-    //UserIsOffline should match in the api PresenceHub.cs
+      this.onlaineUsers$.pipe(take(1)).subscribe({
+        next: (usernames) => {
+          //spread operator to add the new user to the array
+          this.onlaineUsersSource.next([...usernames, userName]);
+        },
+      });
+      }
+    );
+      //UserIsOffline should match in the api PresenceHub.cs
     this.hubConnection.on('UserIsOffline', (userName) => {
-      this.toastr.warning(userName + ' has disconnected');
+      this.onlaineUsers$.pipe(take(1)).subscribe({
+        next: (usernames) => {
+          //filter to remove the user from the array
+          this.onlaineUsersSource.next([
+            ...usernames.filter((x) => x !== userName),
+          ]);
+        },
+      });
     });
     //GetOnlineUsersFromAPI should match in the api PresenceHub.cs
     this.hubConnection.on('GetOnlineUsersFromAPI', (usernames: string[]) => {
