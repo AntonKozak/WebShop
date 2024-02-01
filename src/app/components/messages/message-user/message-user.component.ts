@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewChild, inject } from '@angular/core';
 import { Message } from '../../../models/message';
 import { CommonModule } from '@angular/common';
 import { MessageService } from '../../../services/messages/message.service';
